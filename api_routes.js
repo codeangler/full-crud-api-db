@@ -12,10 +12,10 @@ apiRouter.route('/donuts')
   .post(donutController.create) // http protocol POST  #23,  creating single one
 
 // #24  second half of full CRUD for a single MONGODB collection / document
-apiRouter.router('/donuts/:id')
-  .get(donutController.single) // single donuate retrieve
-  .put(donutController.update) //  single donute update 
-  .delete(donutController.destroy) // ()
+// apiRouter.router('/donuts/:id')
+//   .get(donutController.single) // single donuate retrieve
+//   .put(donutController.update) //  single donute update 
+//   .delete(donutController.destroy) // ()
 
 // 14 must export it
 module.exports = apiRouter;

@@ -9,20 +9,23 @@ var donutController = {
       } else{
         res.json(donuts)
       }
-    } ) 
 
-    create: function( req, res){ // 25 ... what do we need to talk to DB
+      })
+    }
+    , 
+// 25 ... what do we need to talk to DB
+    create: function ( req, res){ 
       var newDonut = new Donut(req.body) // 25.1 created model from the form
 
       newDonut.save(function(err, donut){
         if(err){
           console.log('error : ' + error)
         } else {
-          res.json(donut)
+          res.json(donut) // 25.3 returns the saved unique DB object with the #id
           console.log ( donut, "has been created and saved")
         }
       }) // 25.2  save the constructed new Donut
     }
   }
-}
+
 module.exports = donutController // 17  
