@@ -19,12 +19,36 @@ var donutController = {
 
       newDonut.save(function(err, donut){
         if(err){
-          console.log('error : ' + error)
+          console.log('error : ' + err)
         } else {
           res.json(donut) // 25.3 returns the saved unique DB object with the #id
           console.log ( donut, "has been created and saved")
         }
       }) // 25.2  save the constructed new Donut
+    },
+    // 27  p arams
+    single: function( req, res ){
+      var id = req.params.id
+
+      Donut.findById(id, function(err, donut){
+        if(err){
+          console.log('error : ' + err)
+        } else {
+          res.json(donut) //
+        }
+      }) //  findbyid returns single object instead of array
+    },
+
+    //  update function
+    update: function(req, res){
+      var id = req.params.id
+      Donut.findByIdAndUpdate(id, req.body, {new: true}, function(error, upDonut){
+        if(err){
+          console.log('error : ' + err)
+        } else {
+          res.json(upDonut) 
+        }
+      })
     }
   }
 
