@@ -14,8 +14,8 @@ apiRouter.route('/donuts')
 // #24  second half of full CRUD for a single MONGODB collection / document
 apiRouter.route('/donuts/:id')
   .get(donutController.single) // single donuate retrieve
-  // .put(donutController.update) //  single donute update 
-  // .delete(donutController.destroy) // ()
+  .put(donutController.update) //  single donute update 
+  .delete(donutController.destroy) // ()
 
 // 14 must export it
 module.exports = apiRouter;

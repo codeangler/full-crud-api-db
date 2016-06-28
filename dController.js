@@ -39,14 +39,30 @@ var donutController = {
       }) //  findbyid returns single object instead of array
     },
 
-    //  update function
+    //  28 update function  POSTMAN test  put  
     update: function(req, res){
       var id = req.params.id
       Donut.findByIdAndUpdate(id, req.body, {new: true}, function(error, upDonut){
-        if(err){
-          console.log('error : ' + err)
+        if(error){
+          console.log('error : ' + error)
         } else {
           res.json(upDonut) 
+        }
+      })
+    },
+
+    //  detroy
+    destroy: function (req, res){
+      var id = req.params.id;
+
+      Donut.findByIdAndRemove(id, req.body, function(error){
+        if(error){
+          console.error("Your remove call failed : ", error)
+        } else {
+          res.json({
+            success: true,
+            message: "Deleted donute by id: " + id
+          })
         }
       })
     }
