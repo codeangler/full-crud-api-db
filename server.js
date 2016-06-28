@@ -23,7 +23,7 @@ app.use(bodyParser())
 app.use(logger('dev'))
 
 // 10.   first RESTful argument, 
-app.use('api/v0', apiRouter) 
+app.use('/api/v0', apiRouter) 
 
 
 // 9 .set up listener

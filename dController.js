@@ -10,6 +10,19 @@ var donutController = {
         res.json(donuts)
       }
     } ) 
+
+    create: function( req, res){ // 25 ... what do we need to talk to DB
+      var newDonut = new Donut(req.body) // 25.1 created model from the form
+
+      newDonut.save(function(err, donut){
+        if(err){
+          console.log('error : ' + error)
+        } else {
+          res.json(donut)
+          console.log ( donut, "has been created and saved")
+        }
+      }) // 25.2  save the constructed new Donut
+    }
   }
 }
 module.exports = donutController // 17  
